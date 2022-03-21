@@ -15,10 +15,10 @@ yesButton: By = By.xpath(`//a[@id="promptOption0"]`)
 ascendButton: By = By.xpath(`//a[@id="ascendButton"]`) 
 statsButton: By = By.xpath(`//div[@id="statsButton"]`)
 menuClose: By = By.xpath(`//div[@class="close menuClose"]`)
-logBUtton: By = By.xpath(`//div[@id="logButton"]`)
+logButton: By = By.xpath(`//div[@id="logButton"]`)
 optionsButton: By = By.xpath(`//div[@id="prefsButton"]`)
 twitterLink: By = By.xpath(`//a[@href="https://twitter.com/orteil42"]`)
-  
+
     results: By = By.id("game")
     constructor() {
         super({url: "https://orteil.dashnet.org/cookieclicker/"});
@@ -26,5 +26,18 @@ twitterLink: By = By.xpath(`//a[@href="https://twitter.com/orteil42"]`)
     async getResults() {
         return this.getText(this.results)
     }
+    async waitAndClick(sleep, buttons){
+        // Names for future variables
+        await this.driver.sleep(sleep);
+        //Paramater withing the .sleep function
+        await this.click(buttons);
+        //Paramater within the .click function
+    }
+    async repeatClick(num, click){
+        for (let i = 0; i < num; i++){
+            await this.click(click);
+        }
+    }
+
 }
 
