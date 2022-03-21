@@ -2,7 +2,6 @@ import {By} from "selenium-webdriver"
 import { BasePage } from "./basePage"
 
 export class CC extends BasePage {
-
 // selectors 
 bigCookie: By = By.xpath(`//div[@id="bigCookie"]`)
 cursor: By = By.xpath(`//div[@class="product unlocked enabled"]`)
@@ -18,7 +17,6 @@ menuClose: By = By.xpath(`//div[@class="close menuClose"]`)
 logButton: By = By.xpath(`//div[@id="logButton"]`)
 optionsButton: By = By.xpath(`//div[@id="prefsButton"]`)
 twitterLink: By = By.xpath(`//a[@href="https://twitter.com/orteil42"]`)
-
     results: By = By.id("game")
     constructor() {
         super({url: "https://orteil.dashnet.org/cookieclicker/"});
@@ -40,21 +38,13 @@ twitterLink: By = By.xpath(`//a[@href="https://twitter.com/orteil42"]`)
     }
     async tabs(){
         let myTabs = await this.driver.getAllWindowHandles();
-
         await this.driver.switchTo().window(myTabs[1]);
-    
         let myUrl = await this.driver.getCurrentUrl();
-    
         expect(await this.driver.getCurrentUrl()).toBe("https://twitter.com/orteil42")
-    
         await this.driver.close();
-    
         await this.driver.switchTo().window(myTabs[0]);
-    
         expect(await this.driver.getCurrentUrl()).toBe("https://orteil.dashnet.org/cookieclicker/")
-    
         await this.driver.sleep(1000);
-    
         console.log(myUrl);
     }
 
