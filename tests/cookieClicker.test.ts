@@ -9,33 +9,13 @@ test("clicking on the cookie", async () => {
 
     await cookie.driver.manage().window().maximize();
 
-    await cookie.driver.sleep(1500);
+    await cookie.waitAndClick(1500, cookie.banner);
 
-    await cookie.click(cookie.banner);
+    await cookie.waitAndClick(1500, cookie.twitterLink);
 
-    await cookie.driver.sleep(1500);
-
-    await cookie.click(cookie.twitterLink)
-    // clicks twitter link
     await cookie.driver.sleep(2500)
 
-    let myTabs = await cookie.driver.getAllWindowHandles();
-
-    await cookie.driver.switchTo().window(myTabs[1]);
-
-    let myUrl = await cookie.driver.getCurrentUrl();
-
-    expect(await cookie.driver.getCurrentUrl()).toBe("https://twitter.com/orteil42")
-
-    await cookie.driver.close();
-
-    await cookie.driver.switchTo().window(myTabs[0]);
-
-    expect(await cookie.driver.getCurrentUrl()).toBe("https://orteil.dashnet.org/cookieclicker/")
-
-    await cookie.driver.sleep(1000);
-
-    console.log(myUrl);
+    await cookie.tabs();
 
     await cookie.repeatClick(200, cookie.bigCookie);
 

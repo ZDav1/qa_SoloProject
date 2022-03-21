@@ -38,6 +38,25 @@ twitterLink: By = By.xpath(`//a[@href="https://twitter.com/orteil42"]`)
             await this.click(click);
         }
     }
+    async tabs(){
+        let myTabs = await this.driver.getAllWindowHandles();
+
+        await this.driver.switchTo().window(myTabs[1]);
+    
+        let myUrl = await this.driver.getCurrentUrl();
+    
+        expect(await this.driver.getCurrentUrl()).toBe("https://twitter.com/orteil42")
+    
+        await this.driver.close();
+    
+        await this.driver.switchTo().window(myTabs[0]);
+    
+        expect(await this.driver.getCurrentUrl()).toBe("https://orteil.dashnet.org/cookieclicker/")
+    
+        await this.driver.sleep(1000);
+    
+        console.log(myUrl);
+    }
 
 }
 
