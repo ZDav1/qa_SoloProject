@@ -33,4 +33,7 @@ test("clicking on the cookie", async () => {
     // using a method for repeating tasks.
     await cookie.driver.sleep(1500)
     await cookie.driver.quit();
+    // using a method for repeating tasks.
+    await cookie.driver.sleep(1500)
+    await cookie.driver.quit();
 })
