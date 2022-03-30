@@ -31,7 +31,7 @@ test("clicking on the cookie", async () => {
     await cookie.waitAndClick(500, cookie.optionsButton)
     await cookie.waitAndClick(500, cookie.menuClose)
     // using a method for repeating tasks.
-    await cookie.driver.sleep(1000)
+    await cookie.driver.sleep(1500)
     await cookie.driver.quit();
     // closing program
 })
