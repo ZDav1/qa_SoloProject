@@ -5,7 +5,7 @@ const cookie = new CC;
 test("clicking on the cookie", async () => {
     await cookie.navigate();
     await cookie.driver.manage().window().maximize();
-    await cookie.waitAndClick(1500, cookie.banner);
+    await cookie.waitAndClick(1000, cookie.banner);
     await cookie.waitAndClick(1500, cookie.twitterLink);
     await cookie.driver.sleep(2500)
     await cookie.tabs();
@@ -31,6 +31,7 @@ test("clicking on the cookie", async () => {
     await cookie.waitAndClick(500, cookie.optionsButton)
     await cookie.waitAndClick(500, cookie.menuClose)
     // using a method for repeating tasks.
-    await cookie.driver.sleep(1500)
+    await cookie.driver.sleep(1000)
     await cookie.driver.quit();
+    // closing program
 })

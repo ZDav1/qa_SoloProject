@@ -41,7 +41,7 @@ twitterLink: By = By.xpath(`//a[@href="https://twitter.com/orteil42"]`)
         await this.driver.close();
         await this.driver.switchTo().window(myTabs[0]);
         expect(await this.driver.getCurrentUrl()).toBe("https://orteil.dashnet.org/cookieclicker/")
-        await this.driver.sleep(1000);
+        await this.driver.sleep(1500);
         console.log(myUrl);
         //this method is for closing newly opened tabs
     }
